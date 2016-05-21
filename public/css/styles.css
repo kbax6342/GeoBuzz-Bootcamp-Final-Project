@@ -1,0 +1,204 @@
+body {
+	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	overflow-x: hidden;
+}
+
+/* Navigation */
+
+.nav-custom {
+	font-size: 2em;
+	z-index: 2;
+	position: fixed;
+	background-color: rgba(256, 256, 256, 0.8);
+}
+
+nav a {
+	color: #DB8D83;
+}
+
+/* Header */
+
+header h1 {
+	color: white;
+	display: inline-block;
+	font-size: 10em;
+	/*margin-top: 50px;*/
+	font-weight: 400;
+	float: center;
+	text-shadow: 2px 2px #000;
+}
+
+header h3 {
+	color: white;
+	font-size: 2.5em;
+	text-shadow: 2px 2px #000;
+	margin-top: 0px;
+}
+
+header {
+	background: url("../imgs/detroit-skyline.jpg") no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	max-height: 100%;
+	min-height: 700px;
+}
+
+header figure {
+	text-align: center;
+	margin-top: 200px;
+}
+
+.logo {
+	max-height: 200px;
+	display: inline-block;
+	padding-bottom: 50px;
+}
+
+/* About */
+
+#about {
+	text-align: center;
+	background-color: dodgerblue;
+	padding-top: 75px;
+	padding-bottom: 25px;
+	font-family: 'Amatic SC', cursive;
+	color: white;
+	text-shadow: 1px 1px #000;
+	border-top: 2px solid black;
+}
+
+#about img {
+	max-width: 100%;
+	width: 280px;
+	height: 200px;
+	border: 6px solid white;
+}
+
+#about div {
+	margin-right: 20px;
+	margin-left: 20px;
+}
+
+#about h3 {
+	font-size: 4em;
+	margin-top: 0px;
+}
+
+#about h4 {
+	font-size: 2em;
+	font-family: 'Arial';
+	margin-top: 20px;
+	border: 5px dotted white;
+	display: inline-block;
+	padding: 10px;
+}
+
+#about figcaption {
+	font-size: 4em;
+	font-weight: bold;
+}
+
+/* Contact */
+
+#contact {
+	text-align: center;
+}
+
+#contact figure {
+	display: inline-block;
+	margin: auto;
+}
+
+#contact img {
+	border-radius: 50%;
+	height: 120px;
+	width: 120px;
+	border: 3px solid black;
+}
+
+#contact p {
+	margin: 0px;
+}
+
+.copyright {
+	padding-top: 20px;
+}
+
+/* Content */
+
+#map-canvas {
+	height: 30em;
+	width: 80%;
+	margin: 0 auto;
+	border: 4px solid cornflowerblue;
+	padding-bottom: 25px;
+}
+
+#map-container {
+	padding-top: 60px;
+	display: block;
+	background-color: steelblue;
+	padding-bottom: 15px;
+}
+
+#map-container input {
+	width: 300px;
+	margin-top: 15px;
+}
+
+#map-container h4 {
+	font-size: 3em;
+	font-weight: bold;
+	text-align: center;
+}
+
+#map-container h3 {
+	font-size: 1.2em;
+	font-weight: bold;
+	display: inline;
+}
+
+#map-container p {
+	font-size: 1.2em;
+	width: 50%;
+	margin: 0 auto;
+}
+
+#map-container button {
+	display: block;
+	margin-top: 15px;
+}
+
+.instructions {
+	width: 30%;
+	margin: auto;
+	background-color: rgba(256, 256, 256, 0.5);
+	padding: 0px 10px 0px 10px;
+}
+
+/* The View */
+ 
+ .container h1 {
+ 	font-size: 3em;
+ 	font-weight: bold;
+ 	color: black;
+ 	margin-top: 75px;
+ 	text-align: center;
+ }
+
+ .feedback {
+ 	width: 75%;
+ 	margin: 0 auto;
+ 	text-align: justify;
+ }
+
+ /* Contact */
+
+ #contact {
+ 	margin-top: 75px;
+ 	background-color: dodgerblue;
+ 	padding-top: 75px;
+ 	border-top: 2px solid black;
+ }

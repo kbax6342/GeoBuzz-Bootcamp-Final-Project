@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>AtmoScene</title>
+	
+	<!-- Bootstrap Core CSS -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<!-- Custom Fonts -->
+	<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css"> <!-- What?? -->
+	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
+
+	<!-- Google Maps API JavaScript -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgQ1yk9FCN6A-ol9OYr8adGSdcGcrCgto&libraries=places&callback=initAutocomplete"
+         async defer></script>
+
+	<!-- Viewport -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body ng-app="myApp">
+
+	<!-- Navigation & Header -->
+	<nav>
+		<ul class="nav nav-pills nav-justified nav-custom">
+			<li><a href="#top">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#map-container">Search</a></li>
+			<li><a href="#view">View</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</nav>
+
+	<header class="row">
+		<figure>
+			<h1>AtmoScene
+				<img src="imgs/martini-2.png" class="logo">
+			</h1>
+			<h3>Scope out the scene with AtmoScene</h3>
+		</figure>
+	</header>
+
+	<!-- About -->
+	<section id="about">
+		<h3>A new century app, giving a real view into any location.</h3>
+		<div class="row">
+			<figure class="col-md-3">
+				<img src="imgs/food-view.JPG">
+				<figcaption>#food</figcaption>
+			</figure>
+			<figure class="col-md-3">
+				<img src="imgs/atmosphere-view.jpg">
+				<figcaption>#atmosphere</figcaption>
+			</figure>
+			<figure class="col-md-3">
+				<img src="imgs/wine-view.jpg">
+				<figcaption>#wine</figcaption>
+			</figure>
+			<figure class="col-md-3">
+				<img src="imgs/experience-view2.jpg">
+				<figcaption>#experience</figcaption>
+			</figure>
+		</div>
+		<h4>Experience the real restaurant atmosphere without having to be there.</h4>
+	</section>
+
+	<!-- Map -->
+	<section id="map-container">
+		<div class="instructions">
+			<h3>How it works:</h3>
+			<ol>
+				<li>Drag the marker to your location on the map.</li>
+				<li>Connect your Twitter below.</li>
+				<li>Press the 'Scope the Scene' button.</li>
+				<li>Scope out the AtmoScene!</li>
+			</ol>
+		</div>
+		<div ng-controller="mapController" id="map-canvas"></div>
+		<div ng-controller="mapController" class="feedback">
+			<h3>Radius in miles:</h3>
+				<input name="radius" type="number" ng-model="radius" id="radius" placeholder="5" min="1" max="100">
+				<label for="radius">*1 to 100 miles</label>
+				<br>
+			<h3>Number of Results Displayed:</h3>
+				<input name="results" type="number" ng-model="numofresult" id="numofresult" placeholder="20" min="1" max="100">
+				<label for "results">*1 to 100 statuses</label>
+			<button type="submit" ng-click="myOptions(radius, numofresult)">SUBMIT</button>
+		</div>
+	</section>
+
+
+	<!-- The View Output -->
+	<div class="container" ng-controller="TwitterController" id="view">
+		<h1>Scope out the AtmoScene</h1>
+		<div class="row">
+			<div class="col-xs-6">
+				<button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
+				<button ng-click="refreshTimeline()" id="getTimelineButton" type="button" class="btn btn-info" style="display:none;">Scope the Scene</button>
+				<button ng-click="signOut()" id="signOut" type="button" class="btn btn-link" style="display:none;">Sign Out</button>
+			</div>
+			<div class="col-xs-6">
+				<input type="text" ng-model="searchTerm" class="form-control" id="searchBox" placeholder="Enter search term here" ng-show="connectedTwitter"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12" id="results">
+				<div class="row" ng-repeat="t in tweets | filter:searchTerm">
+					<div class="col-xs-2 col-sm-1">
+						<img ng-src="{{t.user.profile_image_url}}" class="img-circle">
+					</div>
+						<div class="col-xs-10 col-sm-11">
+							<small>{{t.user.name}} | {{t.created_at}} | {{t.geo}}</small><br> 
+							<span ng-bind-html="t.text"></span>
+							<br>
+							<a href={{t.entities.url[0].expanded_url}}>LINK</a>
+						</div>
+					</div>
+						<div ng-show="rateLimitError">
+							Rate limit reached. You are making too many requests.
+						</div>
+						<div>
+							<br/>
+							<input type="button" class="btn btn-info" id="load-more" ng-click="refreshTimeline(tweets[tweets.length-1].id)" ng-show="connectedTwitter" value="Load More"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+	<!-- Footer -->
+	<section id="contact">
+		<figure>
+			<a href="https://www.linkedin.com/in/kevin-baxter-6662ab99"><img src="imgs/baxter-pic2.jpg"></a>
+			<figcaption>Developer: <br />Kevin Baxter</figcaption>
+		</figure>
+		<figure>
+			<a href="https://www.linkedin.com/in/jessicalanedetroit"><img src="imgs/jessic-pic.jpg"></a>
+			<figcaption>Developer: <br />Jessica Lane</figcaption>
+		</figure>
+		<figure>
+			<a href="https://www.linkedin.com/in/wcharafeddine"><img src="imgs/wissam-pic.jpg"></a>
+			<figcaption>Developer: <br />Wissam Charafeddine</figcaption>
+		</figure>
+
+		<div>
+			<h4>AtmoScene</h4>
+			<p>12345 Grand Circus Blvd.</p>
+			<p>Detroit, MI 48102</p>
+			<p>(123) 456-7890</p>
+			<p><a href="mailto:name@example.com">email@email.com</a></p>
+
+			<p class="text-muted copyright">Copyright &copy; AtmoScene 2016</p>
+		</div>
+	</section>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+
+	<!-- JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="lib/oauth.js"></script>
+	<script type="text/javascript" src="lib/angular-sanitize.js"></script>
+	<script type="text/javascript" src="js/tabsapp.js"></script>
+	<script type="text/javascript" src="js/myModule.js"></script>
+    <script type="text/javascript" src="js/mapservice.js"></script>
+	<script type="text/javascript" src="js/twitter/services.js"></script>
+	<script type="text/javascript" src="js/twitter/controllers.js"></script>
+	<script type="text/javascript" src="js/mapController.js"></script>
+
+	<!-- Script to slow down nav bar navigation -->
+	<script>
+		$(function() {
+	        $('a[href*=#]:not([href=#])').click(function() {
+	            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+	                var target = $(this.hash);
+	                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	                if (target.length) {
+	                    $('html,body').animate({
+	                        scrollTop: target.offset().top
+	                    }, 1000);
+	                    return false;
+	                }
+	            }
+	        });
+	    });
+    </script>
+
+</body>
+</html>

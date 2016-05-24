@@ -5,7 +5,7 @@
 
 var app = angular.module('myApp');
 
-app.controller('mapController', function($scope, options, coordinates){
+app.controller('mapController', function($scope, Options, Coordinates){
 
   var map, marker;
   // var newlatitude= 42.3314285278;
@@ -53,7 +53,7 @@ function setMap (latitude, longitude) {
     newlongitude=pos.lng();
     console.log(newlongitude);
     loadTabContent();
-    coordinates.getData(newlatitude,newlongitude);
+    Coordinates.getData(newlatitude,newlongitude);
   });
 
 // console.log($scope.radius);
@@ -72,6 +72,6 @@ $scope.myOptions = function(radius,numofresult) {
   console.log(newradius);
   var newnumofresults= numofresult;
   console.log(newnumofresults);
-  options.getData(newradius,newnumofresults);
+  Options.getData(newradius,newnumofresults);
 }
 });

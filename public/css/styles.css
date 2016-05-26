@@ -1,7 +1,24 @@
 body {
 	font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	overflow-x: hidden;
+	font-size: 100%;
 }
+
+@media screen and (max-device-width: 375px) and (max-device-height: 667px) {
+	.instructions {
+		min-width: 75%;
+	}
+}
+
+/*@media screen and (max-width: 480px) {
+  header h1 {
+    font-size: 4em;
+  }
+
+  .instructions {
+  	width: 75%;
+  }
+}*/
 
 /* Navigation */
 
@@ -21,16 +38,16 @@ nav a {
 header h1 {
 	color: white;
 	display: inline-block;
-	font-size: 10em;
 	/*margin-top: 50px;*/
 	font-weight: 400;
 	float: center;
+	font-size: 18vw;
 	text-shadow: 2px 2px #000;
 }
 
 header h3 {
 	color: white;
-	font-size: 2.5em;
+	font-size: 5vw;
 	text-shadow: 2px 2px #000;
 	margin-top: 0px;
 }
@@ -82,12 +99,12 @@ header figure {
 }
 
 #about h3 {
-	font-size: 4em;
+	font-size: 7em;
 	margin-top: 0px;
 }
 
 #about h4 {
-	font-size: 2em;
+	font-size: 4em;
 	font-family: 'Arial';
 	margin-top: 20px;
 	border: 5px dotted white;
@@ -96,7 +113,7 @@ header figure {
 }
 
 #about figcaption {
-	font-size: 4em;
+	font-size: 7em;
 	font-weight: bold;
 }
 
@@ -155,7 +172,7 @@ header figure {
 }
 
 #map-container h3 {
-	font-size: 1.2em;
+	font-size: 2em;
 	font-weight: bold;
 	display: inline;
 }
@@ -172,20 +189,28 @@ header figure {
 }
 
 .instructions {
-	width: 30%;
+	width: 45%;
 	margin: auto;
 	background-color: rgba(256, 256, 256, 0.5);
 	padding: 0px 10px 0px 10px;
+	font-size: 1.8em;
 }
 
 /* The View */
+
+.container {
+	text-align: center;
+}
  
  .container h1 {
- 	font-size: 3em;
+ 	font-size: 7em;
  	font-weight: bold;
  	color: black;
  	margin-top: 75px;
- 	text-align: center;
+ }
+
+ .container button {
+ 	margin: 0 auto;
  }
 
  .feedback {
@@ -201,4 +226,8 @@ header figure {
  	background-color: dodgerblue;
  	padding-top: 75px;
  	border-top: 2px solid black;
+ }
+
+ #contact figcaption {
+ 	font-size: 1.2em;
  }

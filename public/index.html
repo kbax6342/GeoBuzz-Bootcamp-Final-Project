@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>AtmoScene</title>
+	<title>GeoBuzz</title>
 	
 	<!-- Bootstrap Core CSS -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
@@ -20,13 +20,13 @@
      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgQ1yk9FCN6A-ol9OYr8adGSdcGcrCgto"></script>
 
 	<!-- Viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 </head>
 <body ng-app="myApp">
 
 	<!-- Navigation & Header -->
-	<nav>
+	<nav class="hidden-sm hidden-xs">
 		<ul class="nav nav-pills nav-justified nav-custom">
 			<li><a href="#top">Home</a></li>
 			<li><a href="#about">About</a></li>
@@ -38,35 +38,37 @@
 
 	<header class="row">
 		<figure>
-			<h1>AtmoScene
-				<img src="imgs/martini-2.png" class="logo">
-			</h1>
-			<h3>Scope out the scene with AtmoScene</h3>
+			<h1>GeoBuzz</h1>
+			<h3>Check out the buzz with GeoBuzz</h3>
 		</figure>
 	</header>
 
 	<!-- About -->
 	<section id="about">
-		<h3>A new century app, giving a real view into any location.</h3>
+		<div class="tagline">
+			<h3>A new century app, giving a real view into any location.</h3>
+		</div>
 		<div class="row">
 			<figure class="col-md-3">
-				<img src="imgs/food-view.JPG">
-				<figcaption>#food</figcaption>
+				<img src="imgs/local.jpeg">
+				<figcaption>#local</figcaption>
 			</figure>
 			<figure class="col-md-3">
-				<img src="imgs/atmosphere-view.jpg">
-				<figcaption>#atmosphere</figcaption>
+				<img src="imgs/buzz.jpg">
+				<figcaption>#buzz</figcaption>
 			</figure>
 			<figure class="col-md-3">
-				<img src="imgs/wine-view.jpg">
-				<figcaption>#wine</figcaption>
+				<img src="imgs/news.jpeg">
+				<figcaption>#news</figcaption>
 			</figure>
 			<figure class="col-md-3">
-				<img src="imgs/experience-view2.jpg">
-				<figcaption>#experience</figcaption>
+				<img src="imgs/events.jpeg">
+				<figcaption>#events</figcaption>
 			</figure>
 		</div>
-		<h4>Experience the real restaurant atmosphere without having to be there.</h4>
+		<div class="tagline">
+			<h4>Experience the real buzz without having to be there.</h4>
+		</div>
 	</section>
 
 	<!-- Map -->
@@ -77,7 +79,7 @@
 				<li>Drag the marker to your location on the map.</li>
 				<li>Connect your Twitter below.</li>
 				<li>Press the 'Scope the Scene' button.</li>
-				<li>Scope out the AtmoScene!</li>
+				<li>Scope out the GeoBuzz!</li>
 			</ol>
 		</div>
 		<div ng-controller="mapController" id="map-canvas"></div>
@@ -89,14 +91,14 @@
 			<h3>Number of Results Displayed:</h3>
 				<input name="results" type="number" ng-model="numofresult" id="numofresult" placeholder="20" min="1" max="100">
 				<label for "results">*1 to 100 statuses</label>
-			<button type="submit" ng-click="myOptions(radius, numofresult)">SUBMIT</button>
+			<button type="submit" ng-click="myOptions(radius, numofresult)">APPLY</button>
 		</div>
 	</section>
 
 
 	<!-- The View Output -->
 	<div class="container" ng-controller="TwitterController" id="view">
-		<h1>Scope out the AtmoScene</h1>
+		<h1>Get the buzz with GeoBuzz</h1>
 		<div class="row">
 			<div class="col-xs-6">
 				<button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
@@ -147,13 +149,13 @@
 		</figure>
 
 		<div>
-			<h4>AtmoScene</h4>
+			<h4>GeoBuzz</h4>
 			<p>12345 Grand Circus Blvd.</p>
 			<p>Detroit, MI 48102</p>
 			<p>(123) 456-7890</p>
 			<p><a href="mailto:name@example.com">email@email.com</a></p>
 
-			<p class="text-muted copyright">Copyright &copy; AtmoScene 2016</p>
+			<p class="text-muted copyright">Copyright &copy; GeoBuzz 2016</p>
 		</div>
 	</section>
 

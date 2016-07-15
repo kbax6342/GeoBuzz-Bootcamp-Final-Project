@@ -161,8 +161,9 @@ header figure {
 }
 
 #map-container input {
-	width: 300px;
+	width: 100px;
 	margin-top: 15px;
+    font-size: 2vw;
 }
 
 #map-container h4 {
@@ -172,7 +173,7 @@ header figure {
 }
 
 #map-container h3 {
-	font-size: 2em;
+	font-size: 3em;
 	font-weight: bold;
 	display: inline;
 }
@@ -186,6 +187,7 @@ header figure {
 #map-container button {
 	display: block;
 	margin-top: 15px;
+    font-size: 2em;
 }
 
 .instructions {
@@ -199,7 +201,8 @@ header figure {
 /* The View */
 
 .container {
-	text-align: center;
+
+    font-size: 120%;
 }
  
  .container h1 {
@@ -231,3 +234,11 @@ header figure {
  #contact figcaption {
  	font-size: 1.2em;
  }
+.apply-button {
+    width: 70px;
+    height: 50px;
+}
+.inserts {
+  color: salmon;
+  font-style: italic;
+}

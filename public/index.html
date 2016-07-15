@@ -86,12 +86,12 @@
 		<div ng-controller="mapController" class="feedback">
 			<h3>Radius in miles:</h3>
 				<input name="radius" type="number" ng-model="radius" id="radius" placeholder="5" min="1" max="100">
-				<label for="radius">*1 to 100 miles</label>
+				<label for="radius">*1 to 100 miles                       |</label>
 				<br>
 			<h3>Number of Results Displayed:</h3>
 				<input name="results" type="number" ng-model="numofresult" id="numofresult" placeholder="20" min="1" max="100">
 				<label for "results">*1 to 100 statuses</label>
-			<button type="submit" ng-click="myOptions(radius, numofresult)">APPLY</button>
+			<button  class="apply-button" type="submit" ng-click="myOptions(radius, numofresult)">APPLY</button>
 		</div>
 	</section>
 
@@ -116,10 +116,10 @@
 						<img ng-src="{{t.user.profile_image_url}}" class="img-circle">
 					</div>
 						<div class="col-xs-10 col-sm-11">
-							<small>{{t.user.name}} | {{t.created_at}} | {{t.geo}}</small><br> 
-							<span ng-bind-html="t.text"></span>
-							<br>
-							<a href={{t.entities.url[0].expanded_url}}>LINK</a>
+							<small>User <span class="inserts">{{t.user.name || "unknown"}}</span> from <span class="inserts">{{t.user.location || "unknown"}}</span> tweeted on <span class="inserts">{{t.created_at || "unknown"}}</span> at <span class="inserts">{{t.geo.coordinates || "unknown location"}}</span></small><br> <span ng-bind-html="t.text"></span><a style="padding-left: 5px;" href={{t.source}}>source</a> 
+<!--							<span ng-bind-html="t.text"></span>-->
+<!--							<br>-->
+<!--							<a href={{t.entities.url[0].expanded_url}}>LINK</a>-->
 						</div>
 					</div>
 						<div ng-show="rateLimitError">
